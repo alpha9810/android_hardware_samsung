@@ -13,7 +13,6 @@ android_app {
     platform_apis: true,
 
     static_libs: [
-        "com.android.internal",
         "org.lineageos.settings.resources",
     ],
 
