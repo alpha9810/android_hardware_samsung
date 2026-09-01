@@ -1,0 +1,28 @@
+package {
+    default_applicable_licenses: ["Android-Apache-2.0"],
+}
+
+cc_binary {
+    name: "android.hardware.gatekeeper-service.samsung",
+    init_rc: ["android.hardware.gatekeeper-service.samsung.rc"],
+    vintf_fragments: ["android.hardware.gatekeeper-service.samsung.xml"],
+    cflags: [
+        "-fvisibility=hidden",
+        "-Wall",
+        "-Werror",
+    ],
+    relative_install_path: "hw",
+    shared_libs: [
+        "android.hardware.gatekeeper-V1-ndk",
+        "libbase",
+        "libbinder_ndk",
+        "libgatekeeper",
+        "libhardware",
+    ],
+    srcs: [
+        "GateKeeper.cpp",
+        "service.cpp",
+    ],
+    static_libs: ["libscrypt_static"],
+    vendor: true,
+}
